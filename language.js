@@ -1,2 +1,0 @@
-const T={Hindi:{'Home':'होम','Plan Trip':'यात्रा योजना','Explore':'घूमें','Hotels':'होटल','My Trips':'मेरी यात्राएँ','Travel History':'यात्रा इतिहास','AI Assistant':'AI सहायक'},Marathi:{'Home':'होम','Plan Trip':'ट्रिप प्लॅन','Explore':'भटकंती','Hotels':'हॉटेल्स','My Trips':'माझ्या ट्रिप्स','Travel History':'प्रवास इतिहास','AI Assistant':'AI सहाय्यक'}};
-document.addEventListener("DOMContentLoaded",()=>{const lang=localStorage.getItem("tripmate_lang");if(lang&&T[lang])document.querySelectorAll("[data-i18n]").forEach(e=>e.textContent=T[lang][e.textContent]||e.textContent);});
