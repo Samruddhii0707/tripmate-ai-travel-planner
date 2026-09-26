@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1"
+    >
+
+    <title>
+        {% block title %}
+            TripMate AI
+        {% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body
+    class="{% if request.endpoint in ['login', 'signup'] %}auth-page{% endif %}"
+>
+
+    {% if request.endpoint not in ['login', 'signup'] %}
+
+    <nav class="navbar">
+
+        <div class="nav-inner">
+
+            <a
+                class="brand"
+                href="{{ url_for('index') }}"
+            >
+                ✈ TRIPMATE AI
+            </a>
+
+            <div class="navlinks">
+
+                <a
+                    data-i18n="Home"
+                    href="{{ url_for('index') }}"
+                >
+                    Home
+                </a>
+
+                <a
+                    data-i18n="Plan Trip"
+                    href="{{ url_for('plan_trip') }}"
+                >
+                    Plan Trip
+                </a>
+
+                <a
+                    data-i18n="Explore"
+                    href="{{ url_for('explore') }}"
+                >
+                    Explore
+                </a>
+
+                <a href="{{ url_for('transportation') }}">
+                    Transportation
+                </a>
+
+                <a
+                    data-i18n="Hotels"
+                    href="{{ url_for('hotels') }}"
+                >
+                    Hotels
+                </a>
+
+                <a
+                    data-i18n="My Trips"
+                    href="{{ url_for('dashboard') }}"
+                >
+                    My Trips
+                </a>
+
+                <a
+                    data-i18n="Travel History"
+                    href="{{ url_for('history') }}"
+                >
+                    Travel History
+                </a>
+
+                <a
+                    data-i18n="AI Assistant"
+                    href="{{ url_for('assistant') }}"
+                >
+                    AI Assistant
+                </a>
+
+                <a href="{{ url_for('admin') }}">
+                    Admin
+                </a>
+
+            </div>
+
+            <div class="nav-actions">
+
+                {% if logged_in %}
+
+                    <a
+                        class="btn btn-outline"
+                        href="{{ url_for('logout') }}"
+                    >
+                        Logout
+                    </a>
+
+                {% else %}
+
+                    <a
+                        class="btn btn-outline"
+                        href="{{ url_for('login') }}"
+                    >
+                        Login
+                    </a>
+
+                    <a
+                        class="btn btn-primary"
+                        href="{{ url_for('signup') }}"
+                    >
+                        Sign Up
+                    </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </nav>
+
+    {% endif %}
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+        {% for category, msg in messages %}
+
+            <div
+                class="container"
+                style="padding-bottom: 0"
+            >
+                <div class="alert">
+                    {{ msg }}
+                </div>
+            </div>
+
+        {% endfor %}
+
+    {% endwith %}
+
+
+    {% block content %}
+
+    {% endblock %}
+
+
+    {% if request.endpoint not in ['login', 'signup'] %}
+
+    <footer class="footer">
+
+        <div class="footer-inner">
+
+            <div>
+                <strong>TRIPMATE AI</strong>
+                <br>
+                Plan Smarter. Travel Better with AI.
+            </div>
+
+            <div>
+                AI-ready travel planning • College PBL MVP
+            </div>
+
+        </div>
+
+    </footer>
+
+    {% endif %}
+
+
+    <script
+        src="{{ url_for('static', filename='js/main.js') }}"
+    ></script>
+
+    {% block scripts %}
+
+    {% endblock %}
+
+</body>
+
+</html>

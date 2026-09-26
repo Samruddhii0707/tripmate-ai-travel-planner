@@ -1,0 +1,2 @@
+function updateDays(){const a=document.querySelector("#date"),b=document.querySelector("#return_date"),d=document.querySelector("#days");if(a&&b&&d&&a.value&&b.value){const x=new Date(a.value),y=new Date(b.value);d.value=Math.max(1,Math.ceil((y-x)/86400000));}}
+document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll("#date,#return_date").forEach(x=>x.addEventListener("change",updateDays));});
