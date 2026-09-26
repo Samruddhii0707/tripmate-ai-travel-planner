@@ -1,9 +1,0 @@
-{% extends "base.html" %}{% block title %}Login • TripMate AI{% endblock %}{% block content %}
-<div class="auth-shell"><div class="auth-overlay"></div><div class="auth-content">
-<div class="auth-brand">✈ TRIPMATE AI</div>
-<div class="auth-card"><div class="auth-icon">✈</div><h1>Welcome Back</h1><p class="auth-subtitle">Plan smarter. Travel better with AI.</p>
-{% with messages=get_flashed_messages(with_categories=true) %}{% for category,msg in messages %}<div class="auth-alert">{{msg}}</div>{% endfor %}{% endwith %}
-<form method="post"><div class="field"><label>Email Address</label><input name="email" type="email" placeholder="Enter your email" required></div><div class="field"><label>Password</label><input name="password" type="password" placeholder="Enter your password" required></div><button class="btn auth-login-btn" type="submit">Login</button></form>
-<div class="demo-login">Demo: <strong>demo@tripmate.ai</strong> / <strong>demo123</strong></div>
-<p class="auth-switch">Don't have an account? <a href="{{url_for('signup')}}">Create an account</a></p></div></div></div>
-{% endblock %}
