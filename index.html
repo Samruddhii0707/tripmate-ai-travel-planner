@@ -3,123 +3,744 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="msvalidate.01" content="94F94ED3428278CEA2D03622ED754D45" />
+
+<meta name="msvalidate.01" content="94F94ED3428278CEA2D03622ED754D45" />
+
+<meta name="description" content="TripMate AI is an intelligent travel planner that helps you plan personalized trips, explore destinations, find hotels, and manage your travel budget.">
+
 <title>TRIPMATE AI — Intelligent Travel Planner</title>
+
 <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <!-- AUTH -->
 <section id="authPage" class="auth-wrap">
+
   <div id="loginBox" class="auth glass reveal">
     <div class="logo">✈ TRIPMATE <span>AI</span></div>
-    <h1>Welcome Back</h1><p>Plan smarter. Travel better.</p>
-    <div class="field"><label>Email Address</label><input id="loginEmail" type="email" placeholder="you@example.com"></div>
-    <div class="field"><label>Password</label><input id="loginPassword" type="password" placeholder="••••••••"></div>
-    <label class="check"><input type="checkbox"> Remember me</label>
+
+    <h2>Welcome Back</h2>
+    <p>Plan smarter. Travel better.</p>
+
+    <div class="field">
+      <label>Email Address</label>
+      <input id="loginEmail" type="email" placeholder="you@example.com">
+    </div>
+
+    <div class="field">
+      <label>Password</label>
+      <input id="loginPassword" type="password" placeholder="••••••••">
+    </div>
+
+    <label class="check">
+      <input type="checkbox"> Remember me
+    </label>
+
     <button class="btn auth-btn" onclick="login()">Login</button>
-    <div class="auth-foot">Don't have an account? <span class="link" onclick="showSignup()">Sign Up</span></div>
+
+    <div class="auth-foot">
+      Don't have an account?
+      <span class="link" onclick="showSignup()">Sign Up</span>
+    </div>
   </div>
+
+
   <div id="signupBox" class="auth glass reveal hidden">
     <div class="logo">✈ TRIPMATE <span>AI</span></div>
-    <h1>Create Account</h1><p>Start your personalized travel journey.</p>
-    <div class="field"><label>Full Name</label><input id="signupName" placeholder="Your name"></div>
-    <div class="field"><label>Email Address</label><input id="signupEmail" type="email" placeholder="you@example.com"></div>
-    <div class="field"><label>Password</label><input id="signupPassword" type="password" placeholder="Create password"></div>
+
+    <h2>Create Account</h2>
+    <p>Start your personalized travel journey.</p>
+
+    <div class="field">
+      <label>Full Name</label>
+      <input id="signupName" placeholder="Your name">
+    </div>
+
+    <div class="field">
+      <label>Email Address</label>
+      <input id="signupEmail" type="email" placeholder="you@example.com">
+    </div>
+
+    <div class="field">
+      <label>Password</label>
+      <input id="signupPassword" type="password" placeholder="Create password">
+    </div>
+
     <button class="btn auth-btn" onclick="signup()">Create Account</button>
-    <div class="auth-foot">Already have an account? <span class="link" onclick="showLogin()">Login</span></div>
+
+    <div class="auth-foot">
+      Already have an account?
+      <span class="link" onclick="showLogin()">Login</span>
+    </div>
   </div>
+
 </section>
+
 
 <!-- APP -->
 <div id="app" class="hidden">
+
 <nav class="nav">
   <div class="container nav-inner">
+
     <div class="logo">✈ TRIPMATE <span>AI</span></div>
+
     <div class="navlinks">
-      <button onclick="go('home')">Home</button><button onclick="go('plan')">Plan Trip</button>
-      <button onclick="go('explore')">Explore</button><button onclick="go('hotels')">Hotels</button>
-      <button onclick="go('trips')">My Trips</button><button onclick="go('assistant')">AI Assistant</button>
+      <button onclick="go('home')">Home</button>
+      <button onclick="go('plan')">Plan Trip</button>
+      <button onclick="go('explore')">Explore</button>
+      <button onclick="go('hotels')">Hotels</button>
+      <button onclick="go('trips')">My Trips</button>
+      <button onclick="go('assistant')">AI Assistant</button>
       <button onclick="logout()">Logout</button>
     </div>
+
     <button class="mobile-menu" onclick="toggleMenu()">☰</button>
+
   </div>
 </nav>
 
+
 <main>
+
+<!-- HOME -->
 <section id="home" class="page active">
+
   <div class="hero">
-    <div class="float-chip c1">✈ AI Itinerary</div><div class="float-chip c2">🏨 Smart Hotels</div><div class="float-chip c3">💜 Personalized Trips</div>
+
+    <div class="float-chip c1">✈ AI Itinerary</div>
+    <div class="float-chip c2">🏨 Smart Hotels</div>
+    <div class="float-chip c3">💜 Personalized Trips</div>
+
     <div class="container hero-content">
-      <span class="badge">✨ Intelligent & Personalized Travel Planning</span>
-      <h1>Dream it. <span class="gradient-text">Plan it.</span><br>Live the journey.</h1>
-      <p>TRIPMATE AI turns your destination, budget and interests into a beautiful personalized travel plan — with stays, transport and expenses in one place.</p>
-      <div class="hero-actions"><button class="btn" onclick="go('plan')">✦ Plan My Trip</button><button class="btn secondary" onclick="go('explore')">Explore Destinations</button></div>
-    </div>
-  </div>
-</section>
 
-<section id="plan" class="page">
-  <div class="container">
-    <div class="section-head"><div><h2>Plan your <span class="gradient-text">perfect trip</span></h2><p>Tell us what you want. We'll build a demo itinerary instantly.</p></div></div>
-    <div class="form-card glass reveal">
-      <div class="form-grid">
-        <div><label>Destination</label><input id="dest" placeholder="e.g. Goa, Manali, Jaipur"></div>
-        <div><label>Number of Days</label><input id="days" type="number" min="1" value="3"></div>
-        <div><label>Travelers</label><input id="people" type="number" min="1" value="2"></div>
-        <div><label>Total Budget (₹)</label><input id="budget" type="number" value="25000"></div>
-        <div><label>Travel Style</label><select id="style"><option>Balanced</option><option>Budget</option><option>Luxury</option><option>Adventure</option></select></div>
-        <div><label>Interests</label><select id="interest"><option>Food & Culture</option><option>Beaches</option><option>Nature</option><option>Adventure</option><option>History</option></select></div>
+      <span class="badge">
+        ✨ Intelligent & Personalized Travel Planning
+      </span>
+
+      <!-- Main H1 -->
+      <h1>
+        Dream it.
+        <span class="gradient-text">Plan it.</span>
+        <br>
+        Live the journey.
+      </h1>
+
+      <p>
+        TRIPMATE AI turns your destination, budget and interests
+        into a beautiful personalized travel plan — with stays,
+        transport and expenses in one place.
+      </p>
+
+      <div class="hero-actions">
+
+        <button class="btn" onclick="go('plan')">
+          ✦ Plan My Trip
+        </button>
+
+        <button class="btn secondary" onclick="go('explore')">
+          Explore Destinations
+        </button>
+
       </div>
-      <button class="btn" style="margin-top:20px" onclick="generateTrip()">✨ Generate AI Itinerary</button>
-      <div id="tripResult"></div>
+
     </div>
+
   </div>
+
 </section>
 
+
+<!-- PLAN TRIP -->
+<section id="plan" class="page">
+
+  <div class="container">
+
+    <div class="section-head">
+      <div>
+
+        <h2>
+          Plan your
+          <span class="gradient-text">perfect trip</span>
+        </h2>
+
+        <p>
+          Tell us what you want. We'll build a demo itinerary instantly.
+        </p>
+
+      </div>
+    </div>
+
+
+    <div class="form-card glass reveal">
+
+      <div class="form-grid">
+
+        <div>
+          <label>Destination</label>
+          <input id="dest" placeholder="e.g. Goa, Manali, Jaipur">
+        </div>
+
+        <div>
+          <label>Number of Days</label>
+          <input id="days" type="number" min="1" value="3">
+        </div>
+
+        <div>
+          <label>Travelers</label>
+          <input id="people" type="number" min="1" value="2">
+        </div>
+
+        <div>
+          <label>Total Budget (₹)</label>
+          <input id="budget" type="number" value="25000">
+        </div>
+
+        <div>
+          <label>Travel Style</label>
+
+          <select id="style">
+            <option>Balanced</option>
+            <option>Budget</option>
+            <option>Luxury</option>
+            <option>Adventure</option>
+          </select>
+
+        </div>
+
+        <div>
+          <label>Interests</label>
+
+          <select id="interest">
+            <option>Food & Culture</option>
+            <option>Beaches</option>
+            <option>Nature</option>
+            <option>Adventure</option>
+            <option>History</option>
+          </select>
+
+        </div>
+
+      </div>
+
+
+      <button
+        class="btn"
+        style="margin-top:20px"
+        onclick="generateTrip()">
+
+        ✨ Generate AI Itinerary
+
+      </button>
+
+      <div id="tripResult"></div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- EXPLORE -->
 <section id="explore" class="page">
-<div class="container"><div class="section-head"><div><h2>Explore <span class="gradient-text">dream destinations</span></h2><p>Visual inspiration for your next journey.</p></div></div>
-<div class="grid grid3">
-  <article class="card glass destination reveal"><img src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=85"><div class="card-body"><h3>Goa</h3><p class="muted">Beaches, sunsets, cafés and vibrant nightlife.</p><span class="tag">Beach</span><span class="tag">Food</span></div></article>
-  <article class="card glass destination reveal"><img src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=85"><div class="card-body"><h3>Jaipur</h3><p class="muted">Royal forts, colorful markets and heritage.</p><span class="tag">Culture</span><span class="tag">History</span></div></article>
-  <article class="card glass destination reveal"><img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=85"><div class="card-body"><h3>Manali</h3><p class="muted">Mountains, cafés, snow and adventure.</p><span class="tag">Nature</span><span class="tag">Adventure</span></div></article>
-  <article class="card glass destination reveal"><img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=85"><div class="card-body"><h3>Kerala</h3><p class="muted">Backwaters, greenery and slow travel.</p><span class="tag">Nature</span><span class="tag">Relax</span></div></article>
-  <article class="card glass destination reveal"><img src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=900&q=85"><div class="card-body"><h3>Mumbai</h3><p class="muted">Coastline, food, culture and city energy.</p><span class="tag">City</span><span class="tag">Food</span></div></article>
-  <article class="card glass destination reveal"><img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=900&q=85"><div class="card-body"><h3>Kashmir</h3><p class="muted">Lakes, valleys and breathtaking landscapes.</p><span class="tag">Nature</span><span class="tag">Scenic</span></div></article>
-</div></div>
+
+<div class="container">
+
+  <div class="section-head">
+
+    <div>
+
+      <h2>
+        Explore
+        <span class="gradient-text">dream destinations</span>
+      </h2>
+
+      <p>
+        Visual inspiration for your next journey.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="grid grid3">
+
+
+    <!-- Goa -->
+    <article class="card glass destination reveal">
+
+      <img
+        src="https://images.unsplash.com/photo-1512343879784-a960bf40e7f2?auto=format&fit=crop&w=900&q=85"
+        alt="Goa beach and travel destination">
+
+      <div class="card-body">
+
+        <h3>Goa</h3>
+
+        <p class="muted">
+          Beaches, sunsets, cafés and vibrant nightlife.
+        </p>
+
+        <span class="tag">Beach</span>
+        <span class="tag">Food</span>
+
+      </div>
+
+    </article>
+
+
+    <!-- Jaipur -->
+    <article class="card glass destination reveal">
+
+      <img
+        src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=85"
+        alt="Jaipur heritage and historical travel destination">
+
+      <div class="card-body">
+
+        <h3>Jaipur</h3>
+
+        <p class="muted">
+          Royal forts, colorful markets and heritage.
+        </p>
+
+        <span class="tag">Culture</span>
+        <span class="tag">History</span>
+
+      </div>
+
+    </article>
+
+
+    <!-- Manali -->
+    <article class="card glass destination reveal">
+
+      <img
+        src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=900&q=85"
+        alt="Manali mountain travel destination">
+
+      <div class="card-body">
+
+        <h3>Manali</h3>
+
+        <p class="muted">
+          Mountains, cafés, snow and adventure.
+        </p>
+
+        <span class="tag">Nature</span>
+        <span class="tag">Adventure</span>
+
+      </div>
+
+    </article>
+
+
+    <!-- Kerala -->
+    <article class="card glass destination reveal">
+
+      <img
+        src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=900&q=85"
+        alt="Kerala backwaters and nature travel destination">
+
+      <div class="card-body">
+
+        <h3>Kerala</h3>
+
+        <p class="muted">
+          Backwaters, greenery and slow travel.
+        </p>
+
+        <span class="tag">Nature</span>
+        <span class="tag">Relax</span>
+
+      </div>
+
+    </article>
+
+
+    <!-- Mumbai -->
+    <article class="card glass destination reveal">
+
+      <img
+        src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=900&q=85"
+        alt="Mumbai city and coastline travel destination">
+
+      <div class="card-body">
+
+        <h3>Mumbai</h3>
+
+        <p class="muted">
+          Coastline, food, culture and city energy.
+        </p>
+
+        <span class="tag">City</span>
+        <span class="tag">Food</span>
+
+      </div>
+
+    </article>
+
+
+    <!-- Kashmir -->
+    <article class="card glass destination reveal">
+
+      <img
+        src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=900&q=85"
+        alt="Kashmir scenic mountain and lake travel destination">
+
+      <div class="card-body">
+
+        <h3>Kashmir</h3>
+
+        <p class="muted">
+          Lakes, valleys and breathtaking landscapes.
+        </p>
+
+        <span class="tag">Nature</span>
+        <span class="tag">Scenic</span>
+
+      </div>
+
+    </article>
+
+
+  </div>
+
+</div>
+
 </section>
 
+
+<!-- HOTELS -->
 <section id="hotels" class="page">
-<div class="container"><div class="section-head"><div><h2>Stay somewhere <span class="gradient-text">beautiful</span></h2><p>Sample hotel options for your travel demo.</p></div></div>
-<div class="grid grid3">
-  <article class="card glass hotel reveal"><span class="rating">★ 4.8</span><img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=85"><div class="card-body"><h3>Azure Bay Resort</h3><p class="muted">Sea view • Pool • Breakfast</p><div class="price">₹3,800 / night</div></div></article>
-  <article class="card glass hotel reveal"><span class="rating">★ 4.6</span><img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=85"><div class="card-body"><h3>Royal Heritage Stay</h3><p class="muted">Heritage • Central • Restaurant</p><div class="price">₹2,900 / night</div></div></article>
-  <article class="card glass hotel reveal"><span class="rating">★ 4.9</span><img src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=900&q=85"><div class="card-body"><h3>Mountain Mist Retreat</h3><p class="muted">Valley view • Café • Bonfire</p><div class="price">₹3,400 / night</div></div></article>
-  <article class="card glass hotel reveal"><span class="rating">★ 4.7</span><img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=900&q=85"><div class="card-body"><h3>Blue Orchid Suites</h3><p class="muted">Modern rooms • Gym • Wi-Fi</p><div class="price">₹4,200 / night</div></div></article>
-  <article class="card glass hotel reveal"><span class="rating">★ 4.5</span><img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=85"><div class="card-body"><h3>Palm Grove Hotel</h3><p class="muted">Garden • Breakfast • Family rooms</p><div class="price">₹2,500 / night</div></div></article>
-  <article class="card glass hotel reveal"><span class="rating">★ 4.8</span><img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=85"><div class="card-body"><h3>Grand Vista Palace</h3><p class="muted">Luxury • Spa • City view</p><div class="price">₹5,900 / night</div></div></article>
-</div></div>
+
+<div class="container">
+
+  <div class="section-head">
+
+    <div>
+
+      <h2>
+        Stay somewhere
+        <span class="gradient-text">beautiful</span>
+      </h2>
+
+      <p>
+        Sample hotel options for your travel demo.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="grid grid3">
+
+
+    <!-- Azure Bay Resort -->
+    <article class="card glass hotel reveal">
+
+      <span class="rating">★ 4.8</span>
+
+      <img
+        src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=900&q=85"
+        alt="Azure Bay Resort hotel">
+
+      <div class="card-body">
+
+        <h3>Azure Bay Resort</h3>
+
+        <p class="muted">
+          Sea view • Pool • Breakfast
+        </p>
+
+        <div class="price">
+          ₹3,800 / night
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- Royal Heritage Stay -->
+    <article class="card glass hotel reveal">
+
+      <span class="rating">★ 4.6</span>
+
+      <img
+        src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&w=900&q=85"
+        alt="Royal Heritage Stay hotel">
+
+      <div class="card-body">
+
+        <h3>Royal Heritage Stay</h3>
+
+        <p class="muted">
+          Heritage • Central • Restaurant
+        </p>
+
+        <div class="price">
+          ₹2,900 / night
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- Mountain Mist Retreat -->
+    <article class="card glass hotel reveal">
+
+      <span class="rating">★ 4.9</span>
+
+      <img
+        src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?auto=format&fit=crop&w=900&q=85"
+        alt="Mountain Mist Retreat hotel">
+
+      <div class="card-body">
+
+        <h3>Mountain Mist Retreat</h3>
+
+        <p class="muted">
+          Valley view • Café • Bonfire
+        </p>
+
+        <div class="price">
+          ₹3,400 / night
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- Blue Orchid Suites -->
+    <article class="card glass hotel reveal">
+
+      <span class="rating">★ 4.7</span>
+
+      <img
+        src="https://images.unsplash.com/photo-1582719508461-905c673771fd?auto=format&fit=crop&w=900&q=85"
+        alt="Blue Orchid Suites hotel">
+
+      <div class="card-body">
+
+        <h3>Blue Orchid Suites</h3>
+
+        <p class="muted">
+          Modern rooms • Gym • Wi-Fi
+        </p>
+
+        <div class="price">
+          ₹4,200 / night
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- Palm Grove Hotel -->
+    <article class="card glass hotel reveal">
+
+      <span class="rating">★ 4.5</span>
+
+      <img
+        src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?auto=format&fit=crop&w=900&q=85"
+        alt="Palm Grove Hotel">
+
+      <div class="card-body">
+
+        <h3>Palm Grove Hotel</h3>
+
+        <p class="muted">
+          Garden • Breakfast • Family rooms
+        </p>
+
+        <div class="price">
+          ₹2,500 / night
+        </div>
+
+      </div>
+
+    </article>
+
+
+    <!-- Grand Vista Palace -->
+    <article class="card glass hotel reveal">
+
+      <span class="rating">★ 4.8</span>
+
+      <img
+        src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?auto=format&fit=crop&w=900&q=85"
+        alt="Grand Vista Palace luxury hotel">
+
+      <div class="card-body">
+
+        <h3>Grand Vista Palace</h3>
+
+        <p class="muted">
+          Luxury • Spa • City view
+        </p>
+
+        <div class="price">
+          ₹5,900 / night
+        </div>
+
+      </div>
+
+    </article>
+
+
+  </div>
+
+</div>
+
 </section>
 
+
+<!-- MY TRIPS -->
 <section id="trips" class="page">
-<div class="container"><div class="section-head"><div><h2>My <span class="gradient-text">Trip Dashboard</span></h2><p>Your local demo travel summary.</p></div></div>
-<div class="stats">
-<div class="stat glass"><span>Trips Planned</span><b id="tripCount">0</b></div><div class="stat glass"><span>Budget</span><b id="dashBudget">₹0</b></div><div class="stat glass"><span>Travelers</span><b id="dashPeople">0</b></div><div class="stat glass"><span>Status</span><b style="color:#7dd3fc">Ready</b></div>
-</div>
-<div class="glass" style="padding:25px;border-radius:24px;margin-top:20px"><h3>Recent Trip</h3><div id="recentTrip" class="muted" style="margin-top:12px">No trip generated yet. Start planning your journey.</div></div>
-</div></section>
 
-<section id="assistant" class="page">
-<div class="container"><div class="section-head"><div><h2>Your <span class="gradient-text">AI Travel Assistant</span></h2><p>Ask simple travel questions for the demo.</p></div></div>
-<div class="chat glass"><div id="messages" class="messages"><div class="msg bot">Hi! 👋 I'm your TripMate AI assistant. Ask me about budgets, hotels, food, transport or destinations.</div></div>
-<div class="chatbar"><input id="chatInput" placeholder="Ask something like: cheap hotel in Goa?"><button class="btn" onclick="sendMsg()">Send</button></div></div></div>
-</section>
-</main>
-<div class="footer">✈ TRIPMATE AI • Intelligent & Personalized Travel Planning System</div>
+<div class="container">
+
+  <div class="section-head">
+
+    <div>
+
+      <h2>
+        My
+        <span class="gradient-text">Trip Dashboard</span>
+      </h2>
+
+      <p>
+        Your local demo travel summary.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="stats">
+
+    <div class="stat glass">
+      <span>Trips Planned</span>
+      <b id="tripCount">0</b>
+    </div>
+
+    <div class="stat glass">
+      <span>Budget</span>
+      <b id="dashBudget">₹0</b>
+    </div>
+
+    <div class="stat glass">
+      <span>Travelers</span>
+      <b id="dashPeople">0</b>
+    </div>
+
+    <div class="stat glass">
+      <span>Status</span>
+      <b style="color:#7dd3fc">Ready</b>
+    </div>
+
+  </div>
+
+
+  <div
+    class="glass"
+    style="padding:25px;border-radius:24px;margin-top:20px">
+
+    <h3>Recent Trip</h3>
+
+    <div
+      id="recentTrip"
+      class="muted"
+      style="margin-top:12px">
+
+      No trip generated yet. Start planning your journey.
+
+    </div>
+
+  </div>
+
 </div>
+
+</section>
+
+
+<!-- AI ASSISTANT -->
+<section id="assistant" class="page">
+
+<div class="container">
+
+  <div class="section-head">
+
+    <div>
+
+      <h2>
+        Your
+        <span class="gradient-text">AI Travel Assistant</span>
+      </h2>
+
+      <p>
+        Ask simple travel questions for the demo.
+      </p>
+
+    </div>
+
+  </div>
+
+
+  <div class="chat glass">
+
+    <div id="messages" class="messages">
+
+      <div class="msg bot">
+        Hi! 👋 I'm your TripMate AI assistant.
+        Ask me about budgets, hotels, food, transport or destinations.
+      </div>
+
+    </div>
+
+
+    <div class="chatbar">
+
+      <input
+        id="chatInput"
+        placeholder="Ask something like: cheap hotel in Goa?">
+
+      <button class="btn" onclick="sendMsg()">
+        Send
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<div class="footer">
+  ✈ TRIPMATE AI • Intelligent & Personalized Travel Planning System
+</div>
+
+</div>
+
 
 <div id="toast" class="hidden"></div>
 
+
 <script src="script.js"></script>
+
 </body>
 </html>
